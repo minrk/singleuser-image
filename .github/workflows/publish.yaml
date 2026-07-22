@@ -43,7 +43,7 @@ jobs:
               echo "REGISTRY=localhost:5000/" >> $GITHUB_ENV
           fi
 
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
 
       - name: Setup push rights to Docker Hub
         # This was setup by...
@@ -56,7 +56,7 @@ jobs:
           docker login -u "${{ secrets.QUAY_USERNAME }}" -p "${{ secrets.QUAY_PASSWORD }}" "${{ env.REGISTRY }}"
 
       - name: Build and push
-        uses: docker/build-push-action@v5
+        uses: docker/build-push-action@v7
         with:
           context: .
           platforms: linux/amd64
