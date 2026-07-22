@@ -4,33 +4,29 @@
 #
 #    ci/refreeze
 #
-aiohappyeyeballs==2.6.1
-    # via aiohttp
-aiohttp==3.13.3
-    # via litellm
-aiosignal==1.4.0
-    # via aiohttp
-aiosqlite==0.22.1
-    # via
-    #   jupyter-ai-jupyternaut
-    #   langgraph-checkpoint-sqlite
-annotated-doc==0.0.4
-    # via typer
+agent-client-protocol==0.9.0
+    # via jupyter-ai-acp-client
+aiofile==3.11.1
+    # via py-key-value-aio
 annotated-types==0.7.0
     # via
     #   -c constraints.txt
     #   pydantic
-anyio==4.12.1
+anyio==4.14.2
     # via
     #   -c constraints.txt
     #   httpx
     #   jupyter-server
     #   jupyter-ydoc
-    #   openai
+    #   mcp
+    #   py-key-value-aio
     #   pycrdt
     #   pycrdt-store
     #   pycrdt-websocket
     #   sqlite-anyio
+    #   sse-starlette
+    #   starlette
+    #   watchfiles
 argon2-cffi==25.1.0
     # via
     #   -c constraints.txt
@@ -43,59 +39,67 @@ arrow==1.4.0
     # via
     #   -c constraints.txt
     #   isoduration
-asttokens==3.0.1
+asttokens==3.0.2
     # via
     #   -c constraints.txt
     #   stack-data
-async-lru==2.1.0
+async-lru==2.3.0
     # via
     #   -c constraints.txt
     #   jupyterlab
-attrs==25.4.0
+attrs==26.1.0
     # via
     #   -c constraints.txt
-    #   aiohttp
+    #   cyclopts
     #   jsonschema
+    #   jsonschema-path
     #   referencing
+authlib==1.7.2
+    # via fastmcp-slim
 babel==2.18.0
     # via
     #   -c constraints.txt
     #   jupyterlab-server
-beautifulsoup4==4.14.3
+beartype==0.22.9
+    # via py-key-value-aio
+beautifulsoup4==4.15.0
     # via
     #   -c constraints.txt
     #   nbconvert
-black==26.1.0
+black==26.5.1
     # via -r requirements.in
-bleach==6.3.0
+bleach==6.4.0
     # via
     #   -c constraints.txt
     #   nbconvert
-certifi==2026.1.4
+cachetools==7.1.4
+    # via py-key-value-aio
+caio==0.9.25
+    # via aiofile
+certifi==2026.6.17
     # via
     #   -c constraints.txt
     #   httpcore
     #   httpx
     #   requests
-cffi==2.0.0
+cffi==2.1.0
     # via
     #   -c constraints.txt
     #   argon2-cffi-bindings
+    #   cryptography
 cfgv==3.5.0
     # via pre-commit
 cgmquantify-updated==0.5.3
     # via -r requirements.in
-charset-normalizer==3.4.4
+charset-normalizer==3.4.9
     # via
     #   -c constraints.txt
     #   requests
-click==8.3.1
+click==8.4.2
     # via
     #   -c constraints.txt
     #   black
-    #   jupyter-ai-magic-commands
-    #   litellm
-    #   typer
+    #   uvicorn
 comm==0.2.3
     # via
     #   -c constraints.txt
@@ -104,32 +108,45 @@ contourpy==1.3.3
     # via
     #   -c constraints.txt
     #   matplotlib
+cryptography==49.0.0
+    # via
+    #   -c constraints.txt
+    #   authlib
+    #   joserfc
+    #   pyjwt
+    #   secretstorage
 cycler==0.12.1
     # via
     #   -c constraints.txt
     #   matplotlib
+cyclopts==4.22.1
+    # via fastmcp-slim
 datetime==6.0
     # via cgmquantify-updated
-debugpy==1.8.20
+debugpy==1.8.21
     # via
     #   -c constraints.txt
     #   ipykernel
-decorator==5.2.1
+decorator==5.3.1
     # via
     #   -c constraints.txt
     #   ipython
-deepmerge==2.0
-    # via jupyter-ai-jupyternaut
 defusedxml==0.7.1
     # via
     #   -c constraints.txt
     #   nbconvert
-distlib==0.4.0
+distlib==0.4.3
     # via virtualenv
-distro==1.9.0
+dnspython==2.8.0
+    # via email-validator
+docstring-parser==0.18.0
+    # via cyclopts
+email-validator==2.3.0
+    # via pydantic
+exceptiongroup==1.3.1
     # via
     #   -c constraints.txt
-    #   openai
+    #   fastmcp-slim
 executing==2.2.1
     # via
     #   -c constraints.txt
@@ -138,13 +155,16 @@ fastjsonschema==2.21.2
     # via
     #   -c constraints.txt
     #   nbformat
-fastuuid==0.14.0
-    # via litellm
-filelock==3.20.3
+fastmcp==3.4.4
+    # via jupyter-server-mcp
+fastmcp-slim==3.4.4
+    # via fastmcp
+filelock==3.31.0
     # via
-    #   huggingface-hub
+    #   -c constraints.txt
+    #   python-discovery
     #   virtualenv
-fonttools==4.61.1
+fonttools==4.63.0
     # via
     #   -c constraints.txt
     #   matplotlib
@@ -152,22 +172,15 @@ fqdn==1.5.1
     # via
     #   -c constraints.txt
     #   jsonschema
-frozenlist==1.8.0
-    # via
-    #   aiohttp
-    #   aiosignal
-fsspec==2026.2.0
-    # via
-    #   -c constraints.txt
-    #   huggingface-hub
 gh-scoped-creds==4.1
     # via -r requirements.in
+griffelib==2.1.0
+    # via fastmcp-slim
 h11==0.16.0
     # via
     #   -c constraints.txt
     #   httpcore
-hf-xet==1.2.0
-    # via huggingface-hub
+    #   uvicorn
 httpcore==1.0.9
     # via
     #   -c constraints.txt
@@ -175,38 +188,34 @@ httpcore==1.0.9
 httpx==0.28.1
     # via
     #   -c constraints.txt
-    #   huggingface-hub
+    #   fastmcp-slim
     #   jupyterlab
-    #   langgraph-sdk
-    #   langsmith
-    #   litellm
-    #   openai
-huggingface-hub==1.4.1
-    # via tokenizers
-identify==2.6.16
+    #   mcp
+httpx-sse==0.4.3
+    # via mcp
+identify==2.6.19
     # via pre-commit
-idna==3.11
+idna==3.18
     # via
     #   -c constraints.txt
     #   anyio
+    #   email-validator
     #   httpx
     #   jsonschema
     #   requests
     #   yarl
-importlib-metadata==8.7.0
+importlib-metadata==9.0.0
     # via
     #   -c constraints.txt
     #   jupyter-ai-persona-manager
-    #   litellm
-ipykernel==7.2.0
+ipykernel==7.3.0
     # via
     #   -c constraints.txt
     #   jupyterlab
-ipython==9.10.0
+ipython==9.15.0
     # via
     #   -c constraints.txt
     #   ipykernel
-    #   jupyter-ai-magic-commands
 ipython-pygments-lexers==1.1.1
     # via
     #   -c constraints.txt
@@ -215,80 +224,87 @@ isoduration==20.11.0
     # via
     #   -c constraints.txt
     #   jsonschema
-jedi==0.19.2
+jaraco-classes==3.4.0
+    # via keyring
+jaraco-context==6.1.2
+    # via keyring
+jaraco-functools==4.6.0
+    # via keyring
+jedi==0.20.0
     # via
     #   -c constraints.txt
     #   ipython
+jeepney==0.9.0
+    # via
+    #   keyring
+    #   secretstorage
 jinja2==3.1.6
     # via
     #   -c constraints.txt
-    #   jupyter-ai-jupyternaut
     #   jupyter-server
     #   jupyterlab
     #   jupyterlab-server
-    #   litellm
     #   nbconvert
-jiter==0.13.0
-    # via openai
-json5==0.13.0
+joserfc==1.7.4
+    # via
+    #   authlib
+    #   fastmcp-slim
+json5==0.15.0
     # via
     #   -c constraints.txt
     #   jupyterlab-server
-jsonpatch==1.33
+jsonpointer==3.1.1
     # via
     #   -c constraints.txt
-    #   langchain-core
-jsonpointer==3.0.0
-    # via
-    #   -c constraints.txt
-    #   jsonpatch
     #   jsonschema
+jsonref==1.1.0
+    # via fastmcp-slim
 jsonschema==4.26.0
     # via
     #   -c constraints.txt
     #   jupyter-events
     #   jupyter-server-ydoc
     #   jupyterlab-server
-    #   litellm
+    #   mcp
     #   nbformat
+jsonschema-path==0.5.0
+    # via fastmcp-slim
 jsonschema-specifications==2025.9.1
     # via
     #   -c constraints.txt
     #   jsonschema
-jupyter-ai==3.0.0b9
+jupyter-ai==3.0.1
     # via -r requirements.in
+jupyter-ai-acp-client==0.1.5
+    # via jupyter-ai
 jupyter-ai-chat-commands==0.0.4
     # via jupyter-ai
-jupyter-ai-jupyternaut==0.0.9
-    # via jupyter-ai
-jupyter-ai-litellm==0.0.1
+jupyter-ai-persona-manager==0.0.12
     # via
     #   jupyter-ai
-    #   jupyter-ai-jupyternaut
-jupyter-ai-magic-commands==0.0.2
-    # via jupyter-ai
-jupyter-ai-persona-manager==0.0.5
-    # via
-    #   jupyter-ai
+    #   jupyter-ai-acp-client
     #   jupyter-ai-chat-commands
-    #   jupyter-ai-jupyternaut
-jupyter-ai-router==0.0.2
+jupyter-ai-router==0.0.5
     # via
     #   jupyter-ai
     #   jupyter-ai-chat-commands
     #   jupyter-ai-persona-manager
-jupyter-client==8.8.0
+jupyter-ai-tools==0.5.2
+    # via jupyter-ai
+jupyter-builder==1.1.1
+    # via
+    #   -c constraints.txt
+    #   jupyterlab
+jupyter-client==8.9.1
     # via
     #   -c constraints.txt
     #   ipykernel
     #   jupyter-server
     #   nbclient
     #   voila
-jupyter-collaboration==4.2.1
-    # via
-    #   jupyter-ai-router
-    #   jupyterlab-chat
-jupyter-collaboration-ui==2.2.1
+jupyter-collaboration==4.4.0
+    # via jupyterlab-chat
+jupyter-collaboration-ui==2.4.1
     # via
     #   jupyter-collaboration
     #   jupyter-server-documents
@@ -296,6 +312,7 @@ jupyter-core==5.9.1
     # via
     #   -c constraints.txt
     #   ipykernel
+    #   jupyter-builder
     #   jupyter-client
     #   jupyter-server
     #   jupyterlab
@@ -303,29 +320,30 @@ jupyter-core==5.9.1
     #   nbconvert
     #   nbformat
     #   voila
-jupyter-docprovider==2.2.1
+jupyter-docprovider==2.4.1
     # via jupyter-collaboration
-jupyter-events==0.12.0
+jupyter-events==0.12.1
     # via
     #   -c constraints.txt
     #   jupyter-server
     #   jupyter-server-fileid
     #   jupyter-server-ydoc
-jupyter-lsp==2.3.0
+jupyter-lsp==2.3.1
     # via
     #   -c constraints.txt
     #   jupyterlab
-jupyter-server==2.17.0
+jupyter-server==2.20.0
     # via
     #   -c constraints.txt
+    #   jupyter-ai-acp-client
     #   jupyter-ai-chat-commands
-    #   jupyter-ai-jupyternaut
-    #   jupyter-ai-litellm
     #   jupyter-ai-persona-manager
     #   jupyter-ai-router
+    #   jupyter-ai-tools
     #   jupyter-lsp
     #   jupyter-server-documents
     #   jupyter-server-fileid
+    #   jupyter-server-mcp
     #   jupyter-server-ydoc
     #   jupyterlab
     #   jupyterlab-chat
@@ -335,49 +353,50 @@ jupyter-server==2.17.0
     #   nbgitpuller
     #   notebook-shim
     #   voila
-jupyter-server-documents==0.1.0
-    # via
-    #   jupyter-ai
-    #   jupyter-ai-jupyternaut
+jupyter-server-documents==0.2.5
+    # via jupyter-ai
 jupyter-server-fileid==0.9.3
     # via
     #   jupyter-ai-persona-manager
     #   jupyter-server-documents
     #   jupyter-server-ydoc
+jupyter-server-mcp==0.2.1
+    # via jupyter-ai
 jupyter-server-terminals==0.5.4
     # via
     #   -c constraints.txt
     #   jupyter-server
-jupyter-server-ydoc==2.2.1
+jupyter-server-ydoc==2.4.0
     # via jupyter-collaboration
-jupyter-smart-on-fhir==0.1.0a3
+jupyter-smart-on-fhir==0.1.0a4
     # via -r requirements.in
-jupyter-ydoc==3.4.0
+jupyter-ydoc==3.4.1
     # via
+    #   jupyter-ai-tools
     #   jupyter-server-documents
     #   jupyter-server-ydoc
     #   jupyterlab-chat
-jupyterhealth-client==0.2.0
+jupyterhealth-client==0.4.0
     # via -r requirements.in
-jupyterlab==4.5.3
+jupyterlab==4.6.1
     # via
     #   -c constraints.txt
     #   jupyter-collaboration
-jupyterlab-chat==0.19.0
+jupyterlab-chat==0.22.1
     # via
     #   jupyter-ai
+    #   jupyter-ai-acp-client
     #   jupyter-ai-chat-commands
-    #   jupyter-ai-jupyternaut
     #   jupyter-ai-persona-manager
     #   jupyter-ai-router
 jupyterlab-code-formatter==3.0.3
     # via -r requirements.in
-jupyterlab-commands-toolkit==0.1.2
-    # via jupyter-ai-jupyternaut
+jupyterlab-commands-toolkit==0.1.6
+    # via jupyter-ai
 jupyterlab-eventlistener==0.4.0
     # via jupyterlab-commands-toolkit
 jupyterlab-notebook-awareness==0.2.0
-    # via jupyter-ai-jupyternaut
+    # via jupyter-ai
 jupyterlab-pygments==0.3.0
     # via
     #   -c constraints.txt
@@ -387,76 +406,57 @@ jupyterlab-server==2.28.0
     #   -c constraints.txt
     #   jupyterlab
     #   voila
-kiwisolver==1.4.9
+keyring==25.7.0
+    # via py-key-value-aio
+kiwisolver==1.5.0
     # via
     #   -c constraints.txt
     #   matplotlib
-langchain==1.2.10
-    # via jupyter-ai-jupyternaut
-langchain-core==1.2.11
-    # via
-    #   langchain
-    #   langgraph
-    #   langgraph-checkpoint
-    #   langgraph-prebuilt
-langgraph==1.0.8
-    # via langchain
-langgraph-checkpoint==4.0.0
-    # via
-    #   langgraph
-    #   langgraph-checkpoint-sqlite
-    #   langgraph-prebuilt
-langgraph-checkpoint-sqlite==3.0.3
-    # via jupyter-ai-jupyternaut
-langgraph-prebuilt==1.0.7
-    # via langgraph
-langgraph-sdk==0.3.5
-    # via langgraph
-langsmith==0.7.1
-    # via langchain-core
 lark==1.3.1
     # via
     #   -c constraints.txt
     #   rfc3987-syntax
-litellm==1.81.10
-    # via jupyter-ai-litellm
-markdown-it-py==4.0.0
+markdown-it-py==4.2.0
     # via rich
 markupsafe==3.0.3
     # via
     #   -c constraints.txt
     #   jinja2
     #   nbconvert
-matplotlib==3.10.8
+matplotlib==3.11.0
     # via
     #   -c constraints.txt
     #   cgmquantify-updated
     #   mplcursors
-matplotlib-inline==0.2.1
+matplotlib-inline==0.2.2
     # via
     #   -c constraints.txt
     #   ipykernel
     #   ipython
+mcp==1.28.1
+    # via fastmcp-slim
 mdurl==0.1.2
     # via markdown-it-py
-mistune==3.2.0
+mistune==3.3.3
     # via
     #   -c constraints.txt
     #   nbconvert
-mplcursors==0.7
+more-itertools==11.1.0
+    # via
+    #   jaraco-classes
+    #   jaraco-functools
+mplcursors==0.7.1
     # via -r requirements.in
 multidict==6.7.1
-    # via
-    #   aiohttp
-    #   yarl
+    # via yarl
 mypy-extensions==1.1.0
     # via black
-nbclient==0.10.4
+nbclient==0.11.0
     # via
     #   -c constraints.txt
     #   nbconvert
     #   voila
-nbconvert==7.17.0
+nbconvert==7.17.1
     # via
     #   -c constraints.txt
     #   jupyter-server
@@ -467,9 +467,9 @@ nbformat==5.10.4
     #   jupyter-server
     #   nbclient
     #   nbconvert
-nbgitpuller==1.2.2
+nbgitpuller==1.3.0
     # via -r requirements.in
-nest-asyncio==1.6.0
+nest-asyncio2==1.7.2
     # via
     #   -c constraints.txt
     #   ipykernel
@@ -479,7 +479,7 @@ notebook-shim==0.2.4
     # via
     #   -c constraints.txt
     #   jupyterlab
-numpy==2.3.5
+numpy==2.4.6
     # via
     #   -c constraints.txt
     #   cgmquantify-updated
@@ -490,31 +490,25 @@ numpy==2.3.5
     #   ruptures
     #   scipy
     #   statsmodels
-openai==2.20.0
-    # via litellm
-orjson==3.11.7
-    # via
-    #   langgraph-sdk
-    #   langsmith
-ormsgpack==1.12.2
-    # via langgraph-checkpoint
-packaging==26.0
+openapi-pydantic==0.5.1
+    # via fastmcp-slim
+opentelemetry-api==1.44.0
+    # via fastmcp-slim
+packaging==26.2
     # via
     #   -c constraints.txt
     #   black
-    #   huggingface-hub
+    #   fastmcp-slim
     #   ipykernel
     #   jupyter-events
     #   jupyter-server
     #   jupyterlab
     #   jupyterlab-code-formatter
     #   jupyterlab-server
-    #   langchain-core
-    #   langsmith
     #   matplotlib
     #   nbconvert
     #   statsmodels
-pandas==3.0.0
+pandas==3.0.3
     # via
     #   -c constraints.txt
     #   cgmquantify-updated
@@ -524,11 +518,13 @@ pandocfilters==1.5.0
     # via
     #   -c constraints.txt
     #   nbconvert
-parso==0.8.5
+parso==0.8.7
     # via
     #   -c constraints.txt
     #   jedi
-pathspec==1.0.4
+pathable==0.6.0
+    # via jsonschema-path
+pathspec==1.1.1
     # via black
 patsy==1.0.2
     # via
@@ -538,19 +534,21 @@ pexpect==4.9.0
     # via
     #   -c constraints.txt
     #   ipython
-pillow==12.1.0
+pillow==12.3.0
     # via
     #   -c constraints.txt
     #   matplotlib
-platformdirs==4.5.1
+platformdirs==4.10.1
     # via
     #   -c constraints.txt
     #   black
+    #   fastmcp-slim
     #   jupyter-core
+    #   python-discovery
     #   virtualenv
-pre-commit==4.5.1
+pre-commit==4.6.1
     # via -r requirements.in
-prometheus-client==0.24.1
+prometheus-client==0.25.0
     # via
     #   -c constraints.txt
     #   jupyter-server
@@ -558,14 +556,13 @@ prompt-toolkit==3.0.52
     # via
     #   -c constraints.txt
     #   ipython
-propcache==0.4.1
-    # via
-    #   aiohttp
-    #   yarl
+propcache==0.5.2
+    # via yarl
 psutil==7.2.2
     # via
     #   -c constraints.txt
     #   ipykernel
+    #   ipython
 ptyprocess==0.7.0
     # via
     #   -c constraints.txt
@@ -575,13 +572,16 @@ pure-eval==0.2.3
     # via
     #   -c constraints.txt
     #   stack-data
-pycparser==2.22
+py-key-value-aio==0.4.5
+    # via fastmcp-slim
+pycparser==3.0
     # via
     #   -c constraints.txt
     #   cffi
-pycrdt==0.12.46
+pycrdt==0.12.50
     # via
     #   jupyter-ai-persona-manager
+    #   jupyter-ai-tools
     #   jupyter-server-documents
     #   jupyter-server-ydoc
     #   jupyter-ydoc
@@ -592,37 +592,43 @@ pycrdt-store==0.1.3
     # via pycrdt-websocket
 pycrdt-websocket==0.16.0
     # via jupyter-server-ydoc
-pydantic==2.12.5
+pydantic==2.13.4
     # via
     #   -c constraints.txt
-    #   jupyter-ai-jupyternaut
-    #   jupyter-ai-magic-commands
+    #   agent-client-protocol
+    #   fastmcp-slim
+    #   jupyter-ai-acp-client
     #   jupyter-ai-persona-manager
-    #   langchain
-    #   langchain-core
-    #   langgraph
-    #   langsmith
-    #   litellm
-    #   openai
-pydantic-core==2.41.5
+    #   mcp
+    #   openapi-pydantic
+    #   pydantic-settings
+pydantic-core==2.46.4
     # via
     #   -c constraints.txt
     #   pydantic
-pygments==2.19.2
+pydantic-settings==2.14.2
+    # via
+    #   fastmcp-slim
+    #   mcp
+pygments==2.20.0
     # via
     #   -c constraints.txt
     #   ipython
     #   ipython-pygments-lexers
     #   nbconvert
     #   rich
-pyjwt==2.11.0
+    #   rich-rst
+pyjwt==2.13.0
     # via
     #   -c constraints.txt
     #   jupyter-smart-on-fhir
+    #   mcp
 pyparsing==3.3.2
     # via
     #   -c constraints.txt
     #   matplotlib
+pyperclip==1.11.0
+    # via fastmcp-slim
 python-dateutil==2.9.0.post0
     # via
     #   -c constraints.txt
@@ -630,26 +636,30 @@ python-dateutil==2.9.0.post0
     #   jupyter-client
     #   matplotlib
     #   pandas
-python-dotenv==1.2.1
+python-discovery==1.5.0
+    # via virtualenv
+python-dotenv==1.2.2
     # via
-    #   jupyter-ai-jupyternaut
-    #   litellm
-python-json-logger==2.0.7
+    #   fastmcp-slim
+    #   pydantic-settings
+python-json-logger==4.1.0
     # via
     #   -c constraints.txt
     #   jupyter-events
+python-multipart==0.0.32
+    # via
+    #   fastmcp-slim
+    #   mcp
 pytokens==0.4.1
     # via black
 pytz==2025.2
-    # via
-    #   -c constraints.txt
-    #   datetime
+    # via datetime
 pyyaml==6.0.3
     # via
     #   -c constraints.txt
-    #   huggingface-hub
+    #   fastmcp-slim
+    #   jsonschema-path
     #   jupyter-events
-    #   langchain-core
     #   pre-commit
 pyzmq==27.1.0
     # via
@@ -661,22 +671,16 @@ referencing==0.37.0
     # via
     #   -c constraints.txt
     #   jsonschema
+    #   jsonschema-path
     #   jsonschema-specifications
     #   jupyter-events
-regex==2026.1.15
-    # via tiktoken
-requests==2.32.5
+requests==2.34.2
     # via
     #   -c constraints.txt
     #   gh-scoped-creds
     #   jupyter-smart-on-fhir
     #   jupyterhealth-client
     #   jupyterlab-server
-    #   langsmith
-    #   requests-toolbelt
-    #   tiktoken
-requests-toolbelt==1.0.0
-    # via langsmith
 rfc3339-validator==0.1.4
     # via
     #   -c constraints.txt
@@ -691,69 +695,67 @@ rfc3987-syntax==1.1.0
     # via
     #   -c constraints.txt
     #   jsonschema
-rich==14.3.2
-    # via typer
-rpds-py==0.30.0
+rich==15.0.0
+    # via
+    #   cyclopts
+    #   fastmcp-slim
+    #   rich-rst
+rich-rst==2.1.0
+    # via cyclopts
+rpds-py==2026.6.3
     # via
     #   -c constraints.txt
     #   jsonschema
     #   referencing
-ruff==0.15.0
+ruff==0.15.22
     # via -r requirements.in
 ruptures==1.1.10
     # via -r requirements.in
-scipy==1.17.0
+scipy==1.18.0
     # via
     #   -c constraints.txt
     #   ruptures
     #   statsmodels
+secretstorage==3.5.0
+    # via keyring
 send2trash==2.1.0
     # via
     #   -c constraints.txt
     #   jupyter-server
-shellingham==1.5.4
-    # via
-    #   huggingface-hub
-    #   typer
 six==1.17.0
     # via
     #   -c constraints.txt
     #   python-dateutil
     #   rfc3339-validator
-sniffio==1.3.1
-    # via
-    #   -c constraints.txt
-    #   openai
-soupsieve==2.8.3
+soupsieve==2.9
     # via
     #   -c constraints.txt
     #   beautifulsoup4
-sqlite-anyio==0.2.5
+sqlite-anyio==0.2.10
     # via pycrdt-store
-sqlite-vec==0.1.6
-    # via langgraph-checkpoint-sqlite
+sse-starlette==3.4.6
+    # via mcp
 stack-data==0.6.3
     # via
     #   -c constraints.txt
     #   ipython
+starlette==1.3.1
+    # via
+    #   fastmcp-slim
+    #   mcp
+    #   sse-starlette
 statsmodels==0.14.6
     # via
     #   -c constraints.txt
     #   cgmquantify-updated
-tenacity==9.1.4
-    # via langchain-core
 terminado==0.18.1
     # via
     #   -c constraints.txt
     #   jupyter-server
     #   jupyter-server-terminals
-tiktoken==0.12.0
-    # via litellm
 tinycss2==1.4.0
     # via bleach
-tokenizers==0.22.2
-    # via litellm
-tornado==6.5.4
+tornado==6.5.7
     # via
     #   -c constraints.txt
     #   ipykernel
@@ -762,17 +764,12 @@ tornado==6.5.4
     #   jupyterlab
     #   nbgitpuller
     #   terminado
-tqdm==4.67.3
-    # via
-    #   -c constraints.txt
-    #   huggingface-hub
-    #   openai
-traitlets==5.14.3
+traitlets==5.15.1
     # via
     #   -c constraints.txt
     #   ipykernel
     #   ipython
-    #   jupyter-ai-jupyternaut
+    #   jupyter-builder
     #   jupyter-client
     #   jupyter-core
     #   jupyter-events
@@ -783,45 +780,50 @@ traitlets==5.14.3
     #   nbconvert
     #   nbformat
     #   voila
-typer==0.23.0
-    # via typer-slim
-typer-slim==0.23.0
-    # via huggingface-hub
-typing-extensions==4.15.0
+typing-extensions==4.16.0
     # via
     #   -c constraints.txt
     #   beautifulsoup4
-    #   huggingface-hub
-    #   langchain-core
-    #   openai
+    #   fastmcp-slim
+    #   jupyter-client
+    #   mcp
+    #   opentelemetry-api
+    #   py-key-value-aio
     #   pydantic
     #   pydantic-core
+    #   sqlite-anyio
     #   typing-inspection
 typing-inspection==0.4.2
     # via
     #   -c constraints.txt
+    #   mcp
     #   pydantic
-tzdata==2025.3
+    #   pydantic-settings
+tzdata==2026.3
     # via
     #   -c constraints.txt
     #   arrow
+uncalled-for==0.3.2
+    # via fastmcp-slim
 uri-template==1.3.0
     # via
     #   -c constraints.txt
     #   jsonschema
-urllib3==2.6.3
+urllib3==2.7.0
     # via
     #   -c constraints.txt
     #   requests
-uuid-utils==0.14.0
+uvicorn==0.51.0
     # via
-    #   langchain-core
-    #   langsmith
-virtualenv==20.36.1
+    #   fastmcp-slim
+    #   mcp
+virtualenv==21.7.0
     # via pre-commit
-voila==0.5.11
+voila==0.5.12
     # via -r requirements.in
-wcwidth==0.5.3
+watchfiles==1.2.0
+    # via fastmcp-slim
+wcwidth==0.8.2
     # via
     #   -c constraints.txt
     #   prompt-toolkit
@@ -838,26 +840,15 @@ websocket-client==1.9.0
     # via
     #   -c constraints.txt
     #   jupyter-server
-websockets==16.0
-    # via voila
-xxhash==3.6.0
+websockets==16.1.1
     # via
-    #   langgraph
-    #   langsmith
-yarl==1.22.0
-    # via
-    #   aiohttp
-    #   jupyterhealth-client
-zipp==3.23.0
+    #   fastmcp-slim
+    #   voila
+yarl==1.24.5
+    # via jupyterhealth-client
+zipp==4.1.0
     # via
     #   -c constraints.txt
     #   importlib-metadata
-zope-interface==8.2
+zope-interface==8.5
     # via datetime
-zstandard==0.25.0
-    # via
-    #   -c constraints.txt
-    #   langsmith
-
-# The following packages are considered to be unsafe in a requirements file:
-# setuptools
